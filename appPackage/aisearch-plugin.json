@@ -6,20 +6,9 @@
     "namespace": "volunteeringapp",
     "functions": [
         {
-            "name": "SearchVolunteerOpportunities",
+            "name": "searchVolunteerOpportunities",
             "description": "Retrieves volunteer opportunities using vector-based queries.",
-            "capabilities": {
-                "response_semantics": {
-                    "data_path": "$",
-                    "properties": {
-                        "title": "$.title",
-                        "subtitle": "$.id"
-                    },
-                    "static_template": {
-                        "file": "adaptiveCards/SearchVolunteerOpportunities.json"
-                    }
-                }
-            }
+            "capabilities": {}
         }
     ],
     "runtimes": [
@@ -33,7 +22,7 @@
                 "url": "apiSpecificationFile/aisearchapi.yaml"
             },
             "run_for_functions": [
-                "SearchVolunteerOpportunities"
+                "searchVolunteerOpportunities"
             ]
         }
     ]

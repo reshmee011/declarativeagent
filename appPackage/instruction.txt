@@ -55,7 +55,7 @@ Volunteering assistant intructions
 }
 ```
 
-10. If Search is used in the terms, then call function `SearchVolunteerOpportunities` to search for volunteering opportunities
+10. If Search is used in the terms, then call function `searchVolunteerOpportunities` to search for volunteering opportunities
 
 pass the request body in the json format , replacing SearchText with the user's search terms.
 
