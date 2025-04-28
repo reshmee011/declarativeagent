@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://graph.microsoft.com/v1.0
 paths:
-  /sites/reshmee.sharepoint.com,541d6ad1-322f-419d-8575-5309a29c3cf8,6b96c932-79a5-4f2a-91dc-41689290ebe7/lists/cb530b8f-5af3-44ad-8270-ec89d0357ae5/items?$filter=fields/AssignedTo0LookupId eq {userID}&$expand=fields:
+  /sites/{siteid}/lists/{listid}/items?$filter=fields/AssignedTo0LookupId eq {userID}&$expand=fields:
     get:
       summary: Retrieve volunteer tracker items associated with the user
       operationId: getListItems
@@ -29,6 +29,20 @@ paths:
             type: string
             example: fields
             default: fields
+        - name: siteid
+          in: path
+          description: The ID of the SharePoint site
+          required: true
+          schema:
+            type: string
+            default: "${{SITE_ID}}"
+        - name: listid
+          in: path
+          description: The ID of the SharePoint list
+          required: true
+          schema:
+            type: string
+            default: "${{LIST_ID}}"
       responses:
         '200':
           description: Successful retrieval of list items
@@ -188,7 +202,7 @@ paths:
                   fields:
                     type: object
                     description: Fields of the created item
-  /sites/reshmee.sharepoint.com,541d6ad1-322f-419d-8575-5309a29c3cf8,6b96c932-79a5-4f2a-91dc-41689290ebe7/lists/User Information List/items?$filter=fields/Title eq 'Reshmee Auckloo'&$expand=fields:
+  /sites/{siteid}/lists/User Information List/items:
     get:
       summary: Retrieve list items with selected fields
       operationId: getUserInformation
@@ -201,14 +215,22 @@ paths:
         required: false
         schema:
           type: string
-          example: "HonorNonIndexedQueriesWarningMayFailRandomly"
+          default: "HonorNonIndexedQueriesWarningMayFailRandomly"
       - name: expand
         in: query
         description: Expand fields in response
         required: false
         schema:
           type: string
-          example: "fields(select=id,EMail)"
+          example: fields
+          default: fields
+      - name: siteid
+        in: path
+        description: The ID of the SharePoint site
+        required: true
+        schema:
+          type: string
+          default: "${{SITE_ID}}"    
       responses:
         "200":
           description: Successful retrieval of list items
