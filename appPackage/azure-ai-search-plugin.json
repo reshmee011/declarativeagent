@@ -3,7 +3,7 @@
     "schema_version": "v2.2",
     "name_for_human": "VolunteeringApp",
     "description_for_human": "An API for searching volunteer opportunities using vector queries.",
-    "namespace": "volunteeringapp",
+    "namespace": "azureaisearch",
     "functions": [
         {
             "name": "searchVolunteerOpportunities",
@@ -16,10 +16,10 @@
             "type": "OpenApi",
             "auth": {
                 "type": "ApiKeyPluginVault",
-                "reference_id": "${{APIKEYAUTH_REGISTRATION_ID_FOR_AISearch}}"
+                "reference_id": "${{APIKEYAUTH_REGISTRATION_ID_FOR_AISEARCH}}"
             },
             "spec": {
-                "url": "apiSpecificationFile/aisearchapi.yaml"
+                "url": "apiSpecificationFile/azure-ai-search.yaml"
             },
             "run_for_functions": [
                 "searchVolunteerOpportunities"

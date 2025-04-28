@@ -6,35 +6,27 @@
     "instructions": "$[file('instruction.txt')]",
     "conversation_starters": [
         {
-            "title": "Show me available volunteering opportunities",
-            "text": "Hi! I can help you find volunteering opportunities that match your skills and interests. Let’s get started by learning more about you!"
+            "title": "Show my volunteering activities",
+            "text": "I want to see my volunteering activities"
         },
         {
-            "text": "Retrieve my volunteering activities"
+            "title": "Create a new volunteering activity",
+            "text": "I want to create a new volunteering activity for myself"
         },
         {
-            "text": "Create a new volunteering activities"
-        },
-        {
-            "text": "Retrieve my user id"
-        },
-        {
-            "text": "Search volunteer opportunities"
+            "title": "Tell me about volunteering opportunities",
+            "text": "I want to know about volunteering opportunities that I can apply for"
         }
     ],
     "capabilities": [],
     "actions": [
         {
-            "id": "action_1",
-            "file": "ai-plugin.json"
+            "id": "microsoft-graph",
+            "file": "microsoft-graph-plugin.json"
         },
         {
-            "id": "action_2",
-            "file": "ai-plugin_1.json"
-        },
-        {
-            "id": "action_3",
-            "file": "aisearch-plugin.json"
+            "id": "azure-ai-search",
+            "file": "azure-ai-search-plugin.json"
         }
     ]
 }

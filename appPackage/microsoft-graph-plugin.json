@@ -2,23 +2,23 @@
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.2/schema.json",
     "schema_version": "v2.2",
     "name_for_human": "VolunteeringApp",
-    "description_for_human": "API to retrieve SharePoint list items with expanded fields",
-    "namespace": "volunteeringapp",
+    "description_for_human": "API to interact with Microsoft Graph for resources in SharePoint.",
+    "namespace": "microsoftgraph",
     "functions": [
+        {
+            "name": "getListItems",
+            "description": "Retrieve list items with expanded fields",
+            "capabilities": {}
+        },
+        {
+            "name": "createListItem",
+            "description": "Create a new volunteer tracker item in SharePoint list",
+            "capabilities": {}
+        },
         {
             "name": "getUserInformation",
             "description": "Retrieve user information",
-            "capabilities": {
-                "response_semantics": {
-                    "data_path": "$",
-                    "properties": {
-                        "title": "$.@odata.context"
-                    },
-                    "static_template": {
-                        "file": "adaptiveCards/getUserInformation.json"
-                    }
-                }
-            }
+            "capabilities": {}
         }
     ],
     "runtimes": [
@@ -29,9 +29,11 @@
                 "reference_id": "${{AZUREAADV2_REGISTRATION_ID}}"
             },
             "spec": {
-                "url": "apiSpecificationFile/UserInfoapi.yaml"
+                "url": "apiSpecificationFile/microsoft-graph.yaml"
             },
             "run_for_functions": [
+                "getListItems",
+                "createListItem",
                 "getUserInformation"
             ]
         }
