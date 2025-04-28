@@ -1,0 +1,67 @@
+{
+  "version": "1.0.0",
+  "clients": {},
+  "plugins": {
+    "Mail": {
+      "types": [
+        "APIPlugin"
+      ],
+      "authType": null,
+      "authReferenceId": null,
+      "descriptionLocation": "./apis/Mail.yml",
+      "includePatterns": [
+        "/users/{user-id}/messages",
+        "/users/{user-id}/messages/$count",
+        "/users/{user-id}/messages/microsoft.graph.delta()",
+        "/users/{user-id}/messages/{message-id}",
+        "/users/{user-id}/messages/{message-id}/$value",
+        "/users/{user-id}/messages/{message-id}/attachments",
+        "/users/{user-id}/messages/{message-id}/attachments/$count",
+        "/users/{user-id}/messages/{message-id}/attachments/microsoft.graph.createUploadSession",
+        "/users/{user-id}/messages/{message-id}/attachments/{attachment-id}",
+        "/users/{user-id}/messages/{message-id}/extensions",
+        "/users/{user-id}/messages/{message-id}/extensions/$count",
+        "/users/{user-id}/messages/{message-id}/extensions/{extension-id}",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.copy",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.createForward",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.createReply",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.createReplyAll",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.forward",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.move",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.reply",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.replyAll",
+        "/users/{user-id}/messages/{message-id}/microsoft.graph.send"
+      ],
+      "excludePatterns": [],
+      "outputPath": "./appPackage"
+    },
+    "mstodoplugin": {
+      "types": [
+        "APIPlugin"
+      ],
+      "authType": null,
+      "authReferenceId": null,
+      "descriptionLocation": "./apis/openapi.yaml",
+      "includePatterns": [
+        "/me/sendMail#POST",
+        "/me/todo"
+      ],
+      "excludePatterns": [],
+      "outputPath": "./plugins"
+    },
+    "todoaction": {
+      "types": [
+        "APIPlugin"
+      ],
+      "authType": null,
+      "authReferenceId": null,
+      "descriptionLocation": "./apis/openapi.yaml",
+      "includePatterns": [
+        "/me/todo/lists/{todoTaskList-id}/tasks#GET",
+        "/me/todo/lists/{todoTaskList-id}/tasks#POST"
+      ],
+      "excludePatterns": [],
+      "outputPath": "./plugins"
+    }
+  }
+}
