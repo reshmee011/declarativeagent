@@ -1,0 +1,39 @@
+{
+    "@odata.context": "example string",
+    "value": [
+        {
+            "id": "example string",
+            "createdDateTime": "2024-11-01T05:25:43.593Z",
+            "lastModifiedDateTime": "2024-11-01T05:25:43.593Z",
+            "webUrl": "example string",
+            "createdBy": {
+                "user": {
+                    "email": "example string",
+                    "id": "example string",
+                    "displayName": "example string"
+                }
+            },
+            "lastModifiedBy": {
+                "user": {
+                    "email": "example string",
+                    "id": "example string",
+                    "displayName": "example string"
+                }
+            },
+            "fields": {
+                "Title": "example string",
+                "Description": "example string",
+                "Progress": "example string",
+                "Priority": "example string",
+                "StartDate": "2024-11-01T05:25:43.593Z",
+                "DueDate": "2024-11-01T05:25:43.593Z",
+                "AssignedTo0LookupId": "example string",
+                "Created": "2024-11-01T05:25:43.593Z",
+                "Modified": "2024-11-01T05:25:43.593Z",
+                "AuthorLookupId": "example string",
+                "EditorLookupId": "example string",
+                "Attachments": true
+            }
+        }
+    ]
+}
