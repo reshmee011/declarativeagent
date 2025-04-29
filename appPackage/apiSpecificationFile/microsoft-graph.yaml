@@ -152,6 +152,21 @@ paths:
       operationId: createListItem
       tags:
       - SharePoint
+      parameters:
+      - name: siteid
+        in: path
+        description: The ID of the SharePoint site
+        required: true
+        schema:
+          type: string
+          default: "${{SITE_ID}}"
+      - name: listid
+        in: path
+        description: The ID of the SharePoint list
+        required: true
+        schema:
+          type: string
+          default: "${{LIST_ID}}"
       requestBody:
         required: true
         content:
@@ -304,7 +319,4 @@ components:
           scopes:
             User.Read: Read user profile
             Directory.Read.All: Read directory data
-            Tasks.ReadWrite: Read and write all tasks
-            Mail.Send: Send mail as a user
-            SharePoint.ReadWrite.All: >-
-              Read and write items in all site collections without a signed-in user
+            SharePoint.ReadWrite.All: Read and write items in all site collections
