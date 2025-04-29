@@ -199,7 +199,7 @@ paths:
                       example: '2025-04-15'
                     AssignedTo0LookupId:
                       type: string
-                      example: i:0#.f|membership|reshmee@reshmee.onmicrosoft.com
+                      example: i:0#.f|membership|user@tenant.onmicrosoft.com
                     Notes:
                       type: string
                       example: The benefits are tremendous
