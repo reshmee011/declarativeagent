@@ -4,45 +4,45 @@ info:
   description: API to interact with SharePoint lists via Microsoft Graph
   version: 1.0.0
 servers:
-  - url: https://graph.microsoft.com/v1.0
+- url: https://graph.microsoft.com/v1.0
 paths:
   /sites/{siteid}/lists/{listid}/items?$filter=fields/AssignedTo0LookupId eq {userID}&$expand=fields:
     get:
       summary: Retrieve volunteer tracker items associated with the user
       operationId: getListItems
       tags:
-        - SharePoint
+      - SharePoint
       parameters:
-        - name: filter
-          in: query
-          description: Filter items by assigned user lookup ID
-          required: true
-          schema:
-            type: string
-            example: "fields/AssignedTo0LookupId eq {userId}"
-            default: "fields/AssignedTo0LookupId eq {userId}"
-        - name: expand
-          in: query
-          description: Expand fields in response
-          required: false
-          schema:
-            type: string
-            example: fields
-            default: fields
-        - name: siteid
-          in: path
-          description: The ID of the SharePoint site
-          required: true
-          schema:
-            type: string
-            default: "${{SITE_ID}}"
-        - name: listid
-          in: path
-          description: The ID of the SharePoint list
-          required: true
-          schema:
-            type: string
-            default: "${{LIST_ID}}"
+      - name: filter
+        in: query
+        description: Filter items by assigned user lookup ID
+        required: true
+        schema:
+          type: string
+          example: "fields/AssignedTo0LookupId eq {userId}"
+          default: "fields/AssignedTo0LookupId eq {userId}"
+      - name: expand
+        in: query
+        description: Expand fields in response
+        required: false
+        schema:
+          type: string
+          example: fields
+          default: fields
+      - name: siteid
+        in: path
+        description: The ID of the SharePoint site
+        required: true
+        schema:
+          type: string
+          default: "${{SITE_ID}}"
+      - name: listid
+        in: path
+        description: The ID of the SharePoint list
+        required: true
+        schema:
+          type: string
+          default: "${{LIST_ID}}"
       responses:
         '200':
           description: Successful retrieval of list items
@@ -151,7 +151,7 @@ paths:
       summary: Create a new volunteer tracker item in SharePoint list
       operationId: createListItem
       tags:
-        - SharePoint
+      - SharePoint
       requestBody:
         required: true
         content:
@@ -207,7 +207,7 @@ paths:
       summary: Retrieve list items with selected fields
       operationId: getUserInformation
       tags:
-        - SharePoint
+      - SharePoint
       parameters:
       - name: Prefer
         in: header
@@ -230,7 +230,7 @@ paths:
         required: true
         schema:
           type: string
-          default: "${{SITE_ID}}"    
+          default: "${{SITE_ID}}"
       responses:
         "200":
           description: Successful retrieval of list items
@@ -290,7 +290,7 @@ paths:
                               type: string
                               description: Email associated with the item
 security:
-  - azureaadv2: []
+- azureaadv2: []
 components:
   securitySchemes:
     azureaadv2:
@@ -298,14 +298,13 @@ components:
       flows:
         authorizationCode:
           authorizationUrl: >-
-            https://login.microsoftonline.com/39f0e149-6ce0-483e-8acf-b6faa229a203/oauth2/v2.0/authorize
+            https://login.microsoftonline.com/${{TEAMS_APP_TENANT_ID}}/oauth2/v2.0/authorize
           tokenUrl: >-
-            https://login.microsoftonline.com/39f0e149-6ce0-483e-8acf-b6faa229a203/oauth2/v2.0/token
+            https://login.microsoftonline.com/${{TEAMS_APP_TENANT_ID}}/oauth2/v2.0/token
           scopes:
             User.Read: Read user profile
             Directory.Read.All: Read directory data
             Tasks.ReadWrite: Read and write all tasks
             Mail.Send: Send mail as a user
             SharePoint.ReadWrite.All: >-
-              Read and write items in all site collections without a signed-in
-              user
+              Read and write items in all site collections without a signed-in user
